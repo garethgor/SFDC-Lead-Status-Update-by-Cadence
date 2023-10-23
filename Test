@@ -1,0 +1,25 @@
+@isTest
+public class UpdateLeadOnStepCompletionTriggerTest {
+    static testMethod void testTrigger() {
+        // Step 1: Create test data
+        List<ActionCadenceStepTrackerChangeEvent> testChangeEvents = new List<ActionCadenceStepTrackerChangeEvent>();
+        
+        // Create test Change Events and add them to the list
+        
+        // Insert the test data
+        insert testChangeEvents;
+        
+        // Step 3: Execute the trigger
+        Test.startTest();
+        // Perform some action that causes the trigger to run
+        // Example: Insert a related ActionCadenceStepTrackerChangeEvent record
+        
+        Test.stopTest();
+        
+        // Step 4: Verify the results
+        // Query the database to verify that leads have been updated as expected
+        List<Lead> updatedLeads = [SELECT Id, Status FROM Lead WHERE Id IN :leadIdsToUpdate];
+        // Assert that the leads have been updated as expected
+        System.assertEquals(expectedLeadStatus, updatedLeads[0].Status);
+    }
+}
